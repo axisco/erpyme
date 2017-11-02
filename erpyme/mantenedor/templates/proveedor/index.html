@@ -1,0 +1,29 @@
+{% extends "dashboard/index.html" %} {% block main_content %}
+
+<h5> {{ titulo }}</h5>
+<div class="divider"></div>
+{% if lista_proveedores %}
+<table class="striped">
+    <thead>
+        <tr>
+            <th>Rut</th>
+            <th>Razón Social</th>
+            <th>Contactos</th>
+            <th>Comuna</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for proveedor in lista_proveedores %}
+        <tr>
+            <td>{{ proveedor.rut }}</a> </td>
+            <td><a href="{% url 'proveedor:detalle' proveedor.id %}">{{ proveedor.rsocial }}</a></td>
+            <td>{{ proveedor.contactos }}</a>
+            <td>{{ proveedor.comuna }}</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No existen Proveedores.</p>
+{% endif %} {% endblock %}

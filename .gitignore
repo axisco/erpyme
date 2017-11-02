@@ -1,0 +1,4 @@
+env/
+**/static
+**/**/static
+**/**/__pycache__

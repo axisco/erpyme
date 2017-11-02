@@ -1,0 +1,78 @@
+{% extends "base.html" %} {% block content %}
+<!-- HEADER-->
+<header id="header">
+    <!-- header nav-->
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="/" class="brand-logo">Erpyme</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li class="active"><a href="/">Inicio</a></li>
+                    <li><a href="#">Modulos</a></li>
+                    <li><a href="#">Ayuda</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- end header nav-->
+</header>
+
+<!-- END HEADER-->
+<!-- MAIN-->
+<div id="main">
+    <div class="wrapper">
+        <aside class="left-sidebar-nav">
+            <ul id="slide-out" class="side-nav fixed">
+                <li>
+                    <div class="user-view">
+                        <div class="background">
+                            <img src="http://materializecss.com/images/office.jpg" alt="">
+                        </div>
+                        <a href="#!user"><img class="circle" src="http://materializecss.com/images/yuna.jpg" alt=""></a>
+                        <a href="#!nombre"><span class="white-text name">Ismael Concha</span></a>
+                        <a href="#!email"><span class="white-text email">iconcha@imprentatauro.cl</span></a>
+                    </div>
+                </li>
+                <li class="bold active"><a class="waves-effect" href="/"><i class="material-icons">dashboard</i>Inicio</a></li>
+                <li class="no-padding">
+                    <ul class="collapsible collapsible-accordion">
+                        <li class="bold"><a class="collapsible-header waves-effect"><i class="material-icons">games</i>Presupuesto</a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li><a href="#!">Cotizaciones</a></li>
+                                    <li><a href="#!">Ordenes de Trabajo</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="bold active"><a class="waves-effect" href="#!"><i class="material-icons">dashboard</i>Ventas</a></li>
+                <li class="bold active"><a class="waves-effect" href="#!"><i class="material-icons">dashboard</i>Compras</a></li>
+                <li class="no-padding">
+                    <ul class="collapsible collapsible-accordion">
+                        <li class="bold"><a class="collapsible-header waves-effect"><i class="material-icons">games</i>Administración</a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li><a href="/cliente/">Clientes</a></li>
+                                    <li><a href="#!">Productos</a></li>
+                                    <li><a href="/proveedor/">Proveedores</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+        <section id="content">
+            <div class="container">
+                {% block main_content %} {% endblock %}
+            </div>
+        </section>
+    </div>
+</div>
+<!-- END MAIN-->
+
+<!-- FOOTER -->
+
+<!-- END FOOTER -->
+{% endblock %}
