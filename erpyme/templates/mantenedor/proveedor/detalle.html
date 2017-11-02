@@ -1,0 +1,13 @@
+{% extends "dashboard/index.html" %} {% block main_content %}
+
+<h5> {{ titulo }}</h5>
+<ul>
+    <li>{{ proveedor.rut }}</li>
+    <li>{{ proveedor.rsocial }}</li>
+    <li>{{ proveedor.giro }}</li>
+    <li>{{ proveedor.direccion }}</li>
+    <li>{{ proveedor.contacto }}</li>
+    <li>{{ proveedor.telefono }}</li>
+</ul>
+<a  href="{% url 'mantenedor:editar_pro' id=proveedor.id %}">Editar</a>
+{% endblock %}

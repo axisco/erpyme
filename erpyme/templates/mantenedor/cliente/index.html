@@ -1,0 +1,36 @@
+{% extends "dashboard/index.html" %} {% block main_content %}
+
+<h5> {{ titulo }}</h5>
+
+<div class="divider"></div>
+{% if lista %}
+<table class="striped">
+    <thead>
+        <tr>
+            <th>Rut</th>
+            <th>Razón Social</th>
+            <th>Contacto</th>
+            <th>Email</th>
+            <th>Comuna</th>
+            <th>Registrado </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for campo in lista %}
+        <tr>
+              <td>{{ campo.rut }}</a> </td>
+              <td><a href="{% url 'mantenedor:detalle_cli' campo.id %}">{{ campo.rsocial }}</a></td>
+              <td>{{ campo.contacto }}</a>
+              <td>{{ campo.email }}</a>
+              <td>{{ campo.comuna }}</a>
+              <td>{{ campo.fecha }}</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No existen Proveedores.</p>
+{% endif %}
+<a href="{% url 'mantenedor:agregar_cli' %}" class="addlink">Agregar cliente</a>
+{% endblock %}
