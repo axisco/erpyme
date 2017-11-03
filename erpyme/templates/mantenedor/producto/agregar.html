@@ -1,8 +1,6 @@
 {% extends "dashboard/index.html" %} {% block main_content %}
 <form  method="post" class="post-form">{% csrf_token %}
-
     {{ form.as_p }}
-
     <button type="submit" class="save btn btn-default">Save</button>
 </form>
 {% endblock %}

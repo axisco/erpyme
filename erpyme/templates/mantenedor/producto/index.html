@@ -1,0 +1,36 @@
+{% extends "dashboard/index.html" %} {% block main_content %}
+
+<h5> {{ titulo }}</h5>
+
+<div class="divider"></div>
+{% if lista %}
+<table class="striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Proveedor</th>
+            <th>Valor Neto</th>
+            <th>Descuento</th>
+            <th>Categoria</th>
+            <th>Opciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for campo in lista %}
+        <tr>
+              <td>{{ campo.nombre }}</a> </td>
+              <td>{{ campo.proveedor }}</a>
+              <td>${{ campo.valor }}</a>
+              <td>{{ campo.descuento }}%</a>
+              <td>{{ campo.categoria }}</a>
+              <td><a href="#" class="changelink">Editar</a></td>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No existen Proveedores.</p>
+{% endif %}
+<a href="{% url 'mantenedor:agregar_prd' %}" class="addlink">Agregar producto</a>
+{% endblock %}

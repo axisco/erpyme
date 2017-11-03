@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404,render
 from django.http import Http404
+from django.forms.models import inlineformset_factory
 
 # Create your views here.
 from django.http import HttpResponse
@@ -8,14 +9,20 @@ from django.shortcuts import redirect
 #modelos
 from .models import Proveedor
 from .models import Cliente
+from .models import Producto
+from .models import Categoria
+
 
 #form
 from .forms import ClienteForm
 from .forms import ProveedorForm
+from .forms import ProductoForm
+from .forms import CategoriaForm
+
 
 #vistas proveedor
 def index_pro(request):
-	lista = Proveedor.objects.order_by('nombre')
+	lista = Proveedor.objects.order_by('rsocial')
 	context = {
         	'lista': lista,
 	        'titulo': "Proveedores",
@@ -91,3 +98,42 @@ def editar_cli(request, id):
 	else:
 		form = ClienteForm(instance=cliente)
 	return render( request,'mantenedor/cliente/agregar.html', {'form': form})
+
+#vistas producto
+def index_prd(request):
+	lista = Producto.objects.order_by('nombre')
+	context = {
+		'lista': lista,
+		'titulo': "Productos",
+        }
+	return render( request, 'mantenedor/producto/index.html', context)
+
+def detalle_prd(request, id):
+		producto = get_object_or_404(Producto,pk=id)
+		context = {
+			'producto' : producto,
+			'titulo': "Producto",
+		}
+		return render(request, 'mantenedor/producto/detalle.html', context)
+
+def agregar_prd(request):
+
+	if request.method == "POST":
+		form = ProductoForm(request.POST)
+		if form.is_valid():
+			form.save()
+			return redirect('/mantenedor/producto')
+	else:
+		form = ProductoForm()
+	return render( request,'mantenedor/producto/agregar.html', {'form': form})
+
+def editar_prd(request, id):
+	producto = get_object_or_404(Producto,pk=id)
+	if request.method == "POST":
+		form = ProductoForm(request.POST, instance=producto)
+		if form.is_valid():
+			form.save()
+			return redirect('/mantenedor/producto')
+	else:
+		form = ProductoForm(instance=producto)
+	return render( request,'mantenedor/producto/agregar.html', {'form': form})
