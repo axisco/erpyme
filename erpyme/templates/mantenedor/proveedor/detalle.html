@@ -1,6 +1,12 @@
-{% extends "dashboard/index.html" %} {% block main_content %}
+{% extends "dashboard/index.html" %} 
 
-<h5> {{ titulo }}</h5>
+{% block title %}
+<h3>{{ titulo }}</h3>
+<h5>{{ proveedor.rsocial }}</h5>
+{% endblock %}
+{% block editar %}<li class="menu-option__item"><a href="{% url 'mantenedor:editar_pro' id=proveedor.id %}"><div class="content-navbar__item"><i class="fa fa-edit"></i><span>Editar</span></div></a>{% endblock %}</li>
+
+{% block main_content %}
 <ul>
     <li>{{ proveedor.rut }}</li>
     <li>{{ proveedor.rsocial }}</li>
@@ -9,5 +15,4 @@
     <li>{{ proveedor.contacto }}</li>
     <li>{{ proveedor.telefono }}</li>
 </ul>
-<a  href="{% url 'mantenedor:editar_pro' id=proveedor.id %}">Editar</a>
 {% endblock %}

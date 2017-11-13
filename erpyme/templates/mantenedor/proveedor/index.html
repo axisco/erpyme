@@ -1,9 +1,16 @@
-{% extends "dashboard/index.html" %} {% block main_content %}
+{% extends "dashboard/index.html" %} 
 
-<h5> {{ titulo }}</h5>
-<div class="divider"></div>
+{% block title %}
+<h3>{{ titulo }}</h3>
+<h5>Listado de {{ titulo }}</h5>
+{% endblock %}
+
+{% block book %}<li class="menu-option__item"><a href="{% url 'mantenedor:agregar_pro' %}"><div><i class="fa fa-plus-circle"></i><span>Agregar</span></div></a>{% endblock %}</li>
+{% block agregar %}<li class="menu-option__item"><a href="{% url 'mantenedor:manage_books' %}"><div><i class="fa fa-plus-circle"></i><span>Agregar</span></div></a>{% endblock %}</li>
+
+{% block main_content %} 
 {% if lista %}
-<table class="striped">
+<table>
     <thead>
         <tr>
             <th>Rut</th>
@@ -16,12 +23,15 @@
     <tbody>
         {% for campo in lista %}
         <tr>
-            <td>{{ campo.rut }}</a> </td>
-            <td><a href="{% url 'mantenedor:detalle_pro' campo.id %}">{{ campo.rsocial }}</a></td>
-            <td>{{ campo.giro }}</a>
-            <td>{{ campo.contactos }}</a>
-            <td>{{ campo.comuna }}</a>
+            <td>{{ campo.rut }}</a>
             </td>
+            <td>
+                <a href="{% url 'mantenedor:detalle_pro' campo.id %}">{{ campo.rsocial }}</a>
+            </td>
+            <td>{{ campo.giro }}</a>
+                <td>{{ campo.contactos }}</a>
+                    <td>{{ campo.comuna }}</a>
+                    </td>
         </tr>
         {% endfor %}
     </tbody>
@@ -29,6 +39,5 @@
 {% else %}
 <p>No existen Proveedores.</p>
 {% endif %}
-<a href="{% url 'mantenedor:agregar_pro' %}" class="addlink">Agregar proveedor</a>
-<a href="{% url 'mantenedor:manage_books' %}" class="addlink">Book</a>
+
 {% endblock %}

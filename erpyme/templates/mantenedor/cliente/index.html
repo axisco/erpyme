@@ -1,10 +1,12 @@
-{% extends "dashboard/index.html" %} {% block main_content %}
-
-<h5> {{ titulo }}</h5>
-
-<div class="divider"></div>
-{% if lista %}
-<table class="striped">
+{% extends "dashboard/index.html" %} 
+{% block title %}
+    <h3>{{ titulo }}</h3>
+    <h5>Listado de {{ titulo }}</h5>
+{% endblock %} 
+{% block agregar %}<li class="menu-option__item"><a href="{% url 'mantenedor:agregar_cli' %}"><div><i class="fa fa-plus-circle"></i><span>Agregar</span></div></a>{% endblock %}</li>
+{% block main_content %} {% if lista %}
+<div class="table">
+<table>
     <thead>
         <tr>
             <th>Rut</th>
@@ -12,25 +14,27 @@
             <th>Contacto</th>
             <th>Email</th>
             <th>Comuna</th>
-            <th>Registrado </th>
+            <th>Registrado</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         {% for campo in lista %}
         <tr>
-              <td>{{ campo.rut }}</a> </td>
-              <td><a href="{% url 'mantenedor:detalle_cli' campo.id %}">{{ campo.rsocial }}</a></td>
-              <td>{{ campo.contacto }}</a>
-              <td>{{ campo.email }}</a>
-              <td>{{ campo.comuna }}</a>
-              <td>{{ campo.fecha }}</a>
-            </td>
+            <td>{{ campo.rut }}</a></td>
+            <td><a href="{% url 'mantenedor:detalle_cli' campo.id %}">{{ campo.rsocial }}</a></td>
+            <td>{{ campo.contacto }}</a></td>
+            <td>{{ campo.email }}</a></td>
+            <td>{{ campo.comuna }}</a></td>
+            <td>{{ campo.fecha }}</a></td>
+            <td><a href="#"><i class="fa fa-ellipsis-v"></i></a></td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
+</div>
 {% else %}
 <p>No existen Proveedores.</p>
 {% endif %}
-<a href="{% url 'mantenedor:agregar_cli' %}" class="addlink">Agregar cliente</a>
+
 {% endblock %}

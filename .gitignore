@@ -1,4 +1,9 @@
 env/
-**/static
+**/static/bootstrap
+**/static/materialize
+**/static/imgs
 **/**/static
+**/__pycache__
 **/**/__pycache__
+config.codekit3
+.vscode/

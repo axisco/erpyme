@@ -1,8 +1,23 @@
-{% extends "dashboard/index.html" %} {% block main_content %}
+{% extends "dashboard/index.html" %} 
+
+{% block title %}
+<h3>{{ titulo }}</h3>
+<h5>Agregar {{ titulo }}</h5>
+{% endblock %}
+
+{% block main_content %}
 <form  method="post" class="post-form">{% csrf_token %}
 
     {{ form.as_p }}
 
-    <button type="submit" class="save btn btn-default">Save</button>
+    <div class="menu">
+        <ul class="menu-option">
+            <li class="menu-option__item">
+                <button type="submit">
+                    <div><i class="fa fa-plus-save"></i><span>Guardar</span></div>
+                </button>
+            </li>
+        </ul>
+    </div>
 </form>
 {% endblock %}
