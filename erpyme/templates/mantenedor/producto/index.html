@@ -1,10 +1,14 @@
-{% extends "dashboard/index.html" %} {% block main_content %}
+{% extends "dashboard/index.html" %} 
 
-<h5> {{ titulo }}</h5>
+{% block title %}
+<h3>{{ titulo }}</h3>
+<h5>Listado de {{ titulo }}</h5>
+{% endblock %} 
+{% block agregar %}<li class="menu-option__item"><a href="{% url 'mantenedor:agregar_prd' %}"><div><i class="fa fa-plus-circle"></i><span>Agregar</span></div></a>{% endblock %}</li>
 
-<div class="divider"></div>
+{% block main_content %}
 {% if lista %}
-<table class="striped">
+<table>
     <thead>
         <tr>
             <th>Nombre</th>
@@ -33,8 +37,11 @@
 {% else %}
 <p>No existen Proveedores.</p>
 {% endif %}
+<<<<<<< HEAD
 <button type="button" onClick="window.location.href='{% url 'mantenedor:agregar_prd' %}'" class="save btn btn-default">Agregar Producto</button>
 <br>
 
 
+=======
+>>>>>>> 3f9a948d7800d0c9b3fef1fb720d242a48ff0899
 {% endblock %}

@@ -1,52 +1,57 @@
-{% extends "base.html" %}
-{% block content %}
-<!-- HEADER-->
-<header id="header">
-    <!-- header nav-->
-    <div class="navbar-fixed">
-        <nav>
-            <div class="nav-wrapper">
-                <a href="/" class="brand-logo">Erpyme</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li class="active"><a href="/">Inicio</a></li>
-                    <li><a href="#">Modulos</a></li>
-                    <li><a href="#">Ayuda</a></li>
-                </ul>
-            </div>
-        </nav>
+{% extends "base.html" %} {% block content %}
+<!-- Cabecera-->
+<header class="header">
+    <div class="header-brand">
+        <div class="header-brand__logo"><a href="/">Erpyme</a> </div>
     </div>
-    <!-- end header nav-->
+    <div class="header-menu">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+    </div>
 </header>
-
-<!-- END HEADER-->
-<!-- MAIN-->
-<div id="main">
-    <div class="wrapper">
-        <aside class="left-sidebar-nav">
-            <ul id="slide-out" class="side-nav fixed">
-                <li>
-                    <div class="user-view">
-                        <div class="background">
-                            <img src="http://materializecss.com/images/office.jpg" alt="">
+<!-- Contenido Principal-->
+<div id="main" class="main" role="main">
+    <div class="main-wrap">
+        <!-- Menu lateral-->
+        <aside class="aside">
+            <ul class="aside-nav">
+                <li class="aside-nav__item">
+                    <a class="collapse" href="#">
+                        <div class="collapse__item">
+                            <i class="fa fa-credit-card mr-10"></i>
+                            <span>Ventas</span>
+                            <i class="fa fa-chevron-down"></i>
                         </div>
-                        <a href="#!user"><img class="circle" src="http://materializecss.com/images/yuna.jpg" alt=""></a>
-                        <a href="#!nombre"><span class="white-text name">Ismael Concha</span></a>
-                        <a href="#!email"><span class="white-text email">iconcha@imprentatauro.cl</span></a>
-                    </div>
-                </li>
-                <li class="bold active"><a class="waves-effect" href="/"><i class="material-icons">dashboard</i>Inicio</a></li>
-                <li class="no-padding">
-                    <ul class="collapsible collapsible-accordion">
-                        <li class="bold"><a class="collapsible-header waves-effect"><i class="material-icons">games</i>Presupuesto</a>
-                            <div class="collapsible-body">
-                                <ul>
-                                    <li><a href="#!">Cotizaciones</a></li>
-                                    <li><a href="#!">Ordenes de Trabajo</a></li>
-                                </ul>
-                            </div>
+                    </a>
+                    <ul class="collapse-nav">
+                        <li class="collapse-nav__item">
+                            <a href="#">Nueva Venta</a>
                         </li>
                     </ul>
                 </li>
+                <li class="aside-nav__item">
+                    <a class="collapse" href="#">
+                        <div class="collapse__item">
+                            <i class="fa fa-th mr-10"></i>
+                            <span>Administración</span>
+                            <i class="fa fa-chevron-down"></i>
+                        </div>
+                    </a>
+                    <ul class="collapse-nav">
+                        <li class="collapse-nav__item">
+                            <a href="/mantenedor/producto/">Productos</a>
+                        </li>
+                        <li class="collapse-nav__item">
+                            <a href="/mantenedor/cliente/">Clientes</a>
+                        </li>
+                        <li class="collapse-nav__item">
+                            <a href="/mantenedor/proveedor/">Proveedores</a>
+                        </li>
+                        <li class="collapse-nav__item">
+                            <a href="#">Sucursales</a>
+                        </li>
+                    </ul>
+                </li>
+<<<<<<< HEAD
                 <li class="bold active"><a class="waves-effect" href="#!"><i class="material-icons">dashboard</i>Ventas</a></li>
                 <li class="bold active"><a class="waves-effect" href="/compra/ver/"><i class="material-icons">dashboard</i>Compras</a></li>
                 <li class="no-padding">
@@ -60,22 +65,64 @@
                                 </ul>
 
                             </div>
+=======
+                <li class="aside-nav__item">
+                    <a class="collapse" href="#">
+                        <div class="collapse__item">
+                            <i class="fa fa-gear mr-10"></i>
+                            <span>Configuración</span>
+                            <i class="fa fa-chevron-down"></i>
+                        </div>
+                    </a>
+                    <ul class="collapse-nav">
+                        <li class="collapse-nav__item">
+                            <a href="#">General</a>
+>>>>>>> 3f9a948d7800d0c9b3fef1fb720d242a48ff0899
                         </li>
                     </ul>
                 </li>
             </ul>
         </aside>
+<<<<<<< HEAD
         <section id="content">
             <div class="container">
 
                 {% block main_content %}
 
 		{% endblock %}
+=======
+        <!-- Wrap contenido principal-->
+        <div class="main-wrap-header">
+            <div class="title">
+                {% block title %} {% endblock %}
             </div>
-        </section>
+        </div>
+        <div class="main-wrap-content">
+            <div class="content">
+                <div class="menu">
+                        <ul class="menu-option">
+                            {% block buscar %}{% endblock %}
+                            {% block agregar %}{% endblock %}
+                            {% block editar %}{% endblock %}
+                            {% block book %}{% endblock %}
+                        </ul>
+                </div>
+                {% block main_content %} {% endblock %}
+>>>>>>> 3f9a948d7800d0c9b3fef1fb720d242a48ff0899
+            </div>
+        </div>
+        <div class="main-wrap-footer">
+            <footer>
+                <p>power by axisco</p>
+            </footer>
+        </div>
     </div>
 </div>
+<<<<<<< HEAD
 <!-- END MAIN-->
 <!-- FOOTER -->
 <!-- END FOOTER -->
 {% endblock %}
+=======
+{% endblock %}
+>>>>>>> 3f9a948d7800d0c9b3fef1fb720d242a48ff0899

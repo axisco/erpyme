@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends "dashboard/index.html" %}
 
 {% block main_content %}
@@ -36,6 +37,25 @@
 
   <button type="submit" class="save btn btn-default">Save</button>
   <button type="button" onClick="window.location.href='{% url 'mantenedor:index_prd' %}'" class="save btn btn-default">Cancel</button>
+=======
+{% extends "dashboard/index.html" %} 
+
+<h3>{{ titulo }}</h3>
+<h5>Agregar {{ titulo }}</h5>
+
+{% block main_content %}
+<form  method="post" class="post-form">{% csrf_token %}
+    {{ form.as_p }}
+    <div class="menu">
+        <ul class="menu-option">
+            <li class="menu-option__item">
+                <button type="submit">
+                    <div><i class="fa fa-save"></i><span>Guardar</span></div>
+                </button>
+            </li>
+        </ul>
+    </div>
+>>>>>>> 3f9a948d7800d0c9b3fef1fb720d242a48ff0899
 </form>
 
 
