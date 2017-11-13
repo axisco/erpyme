@@ -9,18 +9,20 @@
             <th>Rut</th>
             <th>Razón Social</th>
             <th>Giro</th>
-            <th>Contactos</th>
+            <th>Web</th>
             <th>Comuna</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         {% for campo in lista %}
         <tr>
             <td>{{ campo.rut }}</a> </td>
-            <td><a href="{% url 'mantenedor:detalle_pro' campo.id %}">{{ campo.rsocial }}</a></td>
+            <td>{{ campo.rsocial }}</td>
             <td>{{ campo.giro }}</a>
-            <td>{{ campo.contactos }}</a>
+            <td>{{ campo.web }}</a>
             <td>{{ campo.comuna }}</a>
+            <td><a href="{% url 'mantenedor:editar_pro' id=campo.id %}">Editar</a></td>
             </td>
         </tr>
         {% endfor %}
@@ -29,6 +31,5 @@
 {% else %}
 <p>No existen Proveedores.</p>
 {% endif %}
-<a href="{% url 'mantenedor:agregar_pro' %}" class="addlink">Agregar proveedor</a>
-<a href="{% url 'mantenedor:manage_books' %}" class="addlink">Book</a>
+<button type="button" onClick="window.location.href='{% url 'mantenedor:agregar_pro' %}'" class="save btn btn-default">Agregar Proveedor</button>
 {% endblock %}

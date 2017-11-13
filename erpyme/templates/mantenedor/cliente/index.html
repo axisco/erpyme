@@ -13,17 +13,19 @@
             <th>Email</th>
             <th>Comuna</th>
             <th>Registrado </th>
+            <th> </th>
         </tr>
     </thead>
     <tbody>
         {% for campo in lista %}
         <tr>
               <td>{{ campo.rut }}</a> </td>
-              <td><a href="{% url 'mantenedor:detalle_cli' campo.id %}">{{ campo.rsocial }}</a></td>
+              <td>{{ campo.rsocial }}</td>
               <td>{{ campo.contacto }}</a>
               <td>{{ campo.email }}</a>
               <td>{{ campo.comuna }}</a>
               <td>{{ campo.fecha }}</a>
+              <td><a href="{% url 'mantenedor:editar_cli' id=campo.id %}">Editar</a></td>
             </td>
         </tr>
         {% endfor %}
@@ -32,5 +34,6 @@
 {% else %}
 <p>No existen Proveedores.</p>
 {% endif %}
-<a href="{% url 'mantenedor:agregar_cli' %}" class="addlink">Agregar cliente</a>
+
+<button type="button" onClick="window.location.href='{% url 'mantenedor:agregar_cli' %}'" class="save btn btn-default">Agregar Cliente</button>
 {% endblock %}

@@ -23,7 +23,8 @@
               <td>${{ campo.valor }}</a>
               <td>{{ campo.descuento }}%</a>
               <td>{{ campo.categoria }}</a>
-              <td><a href="#" class="changelink">Editar</a></td>
+              <td><a href="{% url 'mantenedor:editar_prd' id=campo.id %}">Editar</a></td>
+
             </td>
         </tr>
         {% endfor %}
@@ -32,5 +33,8 @@
 {% else %}
 <p>No existen Proveedores.</p>
 {% endif %}
-<a href="{% url 'mantenedor:agregar_prd' %}" class="addlink">Agregar producto</a>
+<button type="button" onClick="window.location.href='{% url 'mantenedor:agregar_prd' %}'" class="save btn btn-default">Agregar Producto</button>
+<br>
+
+
 {% endblock %}

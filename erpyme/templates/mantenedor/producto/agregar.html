@@ -1,6 +1,42 @@
-{% extends "dashboard/index.html" %} {% block main_content %}
-<form  method="post" class="post-form">{% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="save btn btn-default">Save</button>
+{% extends "dashboard/index.html" %}
+
+{% block main_content %}
+
+
+<form  method="post" action= '' enctype = "multipart/form-data" novalidate class="post-form" id="producto-form">{% csrf_token %}
+
+  <label for="producto-cod_barra" >Cod barra</label>
+    {{form.cod_barra }}
+  <br><br>
+  <label for="producto-nombre">Nombre</label>
+  {{form.nombre }}
+  <br><br>
+  <label for="producto-descripcion" >Descripcion</label>
+  {{form.descripcion }}
+  <br><br>
+  <label for="producto-stock" >Stock</label>
+  {{form.stock }}
+  <br><br>
+  <label for="producto-valor" >Valor</label>
+  {{form.valor }}
+  <br><br>
+  <label for="producto-descuento" >Descuento</label>
+  {{form.descuento }}
+  <br><br>
+  <label for="producto-categoria" >Categoria</label>
+  {{form.categoria }}
+  <a href="/mantenedor/categoria/agregar" id="agregar_categoria" onclick="return showAddPopup(this);"> Add </a>
+  <br><br>
+  <label for="producto-proveedor" >Proveedor</label>
+  {{form.proveedor }}
+  <a href="/mantenedor/proveedor/agregar_popup" id="agregar_proveedor" onclick="return showAddPopup(this);"> Add </a>
+
+  <!--<a href="" id="editar_categoria" style="cursor: pointer; cursor: hand;">Edit </a>-->
+  <br>
+
+  <button type="submit" class="save btn btn-default">Save</button>
+  <button type="button" onClick="window.location.href='{% url 'mantenedor:index_prd' %}'" class="save btn btn-default">Cancel</button>
 </form>
+
+
 {% endblock %}

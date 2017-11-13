@@ -1,4 +1,5 @@
 from django import forms
+from django.forms import ModelForm
 
 from .models import Cliente
 from .models import Proveedor
@@ -22,9 +23,21 @@ class ProveedorForm(forms.ModelForm):
 class CategoriaForm(forms.ModelForm):
     class Meta:
         model = Categoria
-        fields = ('nombre','descripcion')
+        fields = [
+            "nombre",
+            "descripcion"
+        ]
 
 class ProductoForm(forms.ModelForm):
     class Meta:
         model = Producto
-        fields = ('cod_barra','nombre','descripcion','stock','valor','descuento')
+        fields = [
+            "cod_barra",
+            "nombre",
+            "descripcion",
+            "stock",
+            "valor",
+            "descuento",
+            "categoria",
+            "proveedor"
+        ]

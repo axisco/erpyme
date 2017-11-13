@@ -3,8 +3,10 @@ from django.http import Http404
 from django.forms.models import inlineformset_factory
 
 # Create your views here.
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 #modelos
 from .models import Proveedor
@@ -18,6 +20,7 @@ from .forms import ClienteForm
 from .forms import ProveedorForm
 from .forms import ProductoForm
 from .forms import CategoriaForm
+
 
 
 #vistas proveedor
@@ -49,6 +52,13 @@ def agregar_pro(request):
 	else:
 		form = ProveedorForm()
 	return render( request,'mantenedor/proveedor/agregar.html', {'form': form})
+
+def agregar_pro_pp(request):
+	form = ProveedorForm(request.POST or None)
+	if form.is_valid():
+		instance = form.save()
+		return HttpResponse('<script>opener.closePopup(window, "%s", "%s", "#id_proveedor");</script>' % (instance.id, instance))
+	return render(request, "mantenedor/proveedor/agregar.html", {"form" : form})
 
 def editar_pro(request, id):
 	proveedor = get_object_or_404(Proveedor,pk=id)
@@ -117,15 +127,18 @@ def detalle_prd(request, id):
 		return render(request, 'mantenedor/producto/detalle.html', context)
 
 def agregar_prd(request):
-
-	if request.method == "POST":
-		form = ProductoForm(request.POST)
-		if form.is_valid():
-			form.save()
-			return redirect('/mantenedor/producto')
-	else:
-		form = ProductoForm()
+	form = ProductoForm(request.POST or None)
+	if form.is_valid():
+		form.save()
+		return redirect('/mantenedor/producto')
 	return render( request,'mantenedor/producto/agregar.html', {'form': form})
+
+def agregar_cat_prd(request):
+	form = CategoriaForm(request.POST or None)
+	if form.is_valid():
+		instance = form.save()
+		return HttpResponse('<script>opener.closePopup(window, "%s", "%s", "#id_categoria");</script>' % (instance.id, instance))
+	return render(request, "mantenedor/producto/categoria.html", {"form" : form})
 
 def editar_prd(request, id):
 	producto = get_object_or_404(Producto,pk=id)

@@ -1,0 +1,36 @@
+{% extends "dashboard/index.html" %} {% block main_content %}
+
+<h5> {{ titulo }}</h5>
+<div class="divider"></div>
+{% if lista %}
+<table class="striped">
+    <thead>
+        <tr>
+            <th>Factura</th>
+            <th>Proveedor</th>
+            <th>Total Productos</th>
+            <th>Total Compra</th>
+            <th>Fecha</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for campo in lista %}
+        <tr>
+            <td>{{ campo.factura }}</td>
+            <td>{{ campo.proveedor }}</td>
+            <td>{{ campo.total_item }}</td>
+            <td>${{ campo.total }}</td>
+            <td>{{ campo.fecha }}</a>
+            <td><a href="{% url 'compra:detalle_com' id=campo.id %}">Detalle</a>
+              Editar Borrar</td>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No existen Compras.</p>
+{% endif %}
+<button type="button" onClick="window.location.href='{% url 'compra:nueva_com' %}'" class="save btn btn-default">Nueva Compra</button>
+{% endblock %}

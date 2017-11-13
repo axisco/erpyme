@@ -12,10 +12,11 @@
     <!--<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">-->
     <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 </head>
 <body>
     {% block content %}
-        
+
     {% endblock %}
 </body>
 <!-- SCRIPTS-->
@@ -25,5 +26,26 @@
 <!--<script src="{% static 'js/popper.min.js' %}"></script> -->
 <!--<script src="{% static 'js/vue.min.js' %}"></script>-->
 <script src="{% static 'js/main.js' %}"></script>
-</html>
+<script>
+$(document).ready(function() {
+    $('select').material_select();
+});
 
+function showAddPopup(triggeringLink) {
+    var name = triggeringLink.id.replace(/^agregar_/, '');
+    href = triggeringLink.href;
+    var win = window.open(href, name, 'height=500,width=800,resizable=yes,scrollbars=yes');
+    win.focus();
+    return false;
+}
+
+function closePopup(win, newID, newRepr, id) {
+  var o = new Option(newRepr, newID, "true","true");
+  /// jquerify the DOM object 'o' so we can use the html method
+  $(o).html(newRepr);
+  $(id).append(o);
+  $('select').material_select();
+  win.close();
+}
+</script>
+</html>
