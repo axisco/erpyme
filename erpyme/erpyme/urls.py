@@ -22,4 +22,5 @@ urlpatterns = [
     	url(r'^mantenedor/', include('mantenedor.urls')),
     	url(r'^dashboard/', include('dashboard.urls')),
         url(r'^compra/', include('compra.urls')),
+        url(r'^venta/', include('venta.urls')),
 ]
