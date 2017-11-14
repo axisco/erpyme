@@ -16,4 +16,4 @@ env/
 **/__pycache__
 **/**/__pycache__
 config.codekit3
-.vscode/
+~.vscode/
