@@ -1,0 +1,42 @@
+{% extends "dashboard/index.html" %}
+
+{% block title %}
+<h3>{{ titulo }}</h3>
+<h5>Listado de {{ titulo }}</h5>
+{% endblock %}
+
+
+
+{% block main_content %}
+{% if lista %}
+<table>
+    <thead>
+        <tr>
+            <th>Rut</th>
+            <th>Razón Social</th>
+            <th>Giro</th>
+            <th>Contactos</th>
+            <th>Comuna</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for campo in lista %}
+        <tr>
+            <td>{{ campo.rut }}</a>
+            </td>
+            <td>
+                <a href="{% url 'mantenedor:detalle_pro' campo.id %}">{{ campo.rsocial }}</a>
+            </td>
+            <td>{{ campo.giro }}</a>
+                <td>{{ campo.contactos }}</a>
+                    <td>{{ campo.comuna }}</a>
+                    </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No existen Proveedores.</p>
+{% endif %}
+
+{% endblock %}

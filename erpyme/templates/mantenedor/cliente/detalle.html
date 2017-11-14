@@ -1,0 +1,19 @@
+{% extends "dashboard/index.html" %}
+
+{% block title %}
+<h3>{{ titulo }}</h3>
+<h5>{{ cliente.rsocial }}</h5>
+{% endblock %}
+{% block editar %}<li class="menu-option__item"><a href="{% url 'mantenedor:editar_cli' id=cliente.id %}"><div class="content-navbar__item"><i class="fa fa-edit"></i><span>Editar</span></div></a>{% endblock %}</li>
+
+{% block main_content %}
+
+<ul>
+  <li>{{ cliente.rsocial }}</li>
+    <li>{{ cliente.rut }}</li>
+    <li>{{ cliente.direccion }}</li>
+    <li>{{ cliente.contacto }}</li>
+    <li>{{ cliente.telefono }}</li>
+</ul>
+
+{% endblock %}
