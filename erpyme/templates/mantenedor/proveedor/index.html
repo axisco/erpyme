@@ -5,7 +5,7 @@
 <h5>Listado de {{ titulo }}</h5>
 {% endblock %}
 
-
+{% block agregar %}<li class="menu-option__item"><a href="{% url 'mantenedor:agregar_pro' %}"><div><i class="fa fa-plus-circle"></i><span>Agregar</span></div></a>{% endblock %}</li>
 
 {% block main_content %}
 {% if lista %}
