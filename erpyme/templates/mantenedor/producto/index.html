@@ -7,6 +7,7 @@
 {% block agregar %}<li class="menu-option__item"><a href="{% url 'mantenedor:agregar_prd' %}"><div><i class="fa fa-plus-circle"></i><span>Agregar</span></div></a>{% endblock %}</li>
 
 {% block main_content %}
+{{ mensaje }}
 {% if lista %}
 <table>
     <thead>

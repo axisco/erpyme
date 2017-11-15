@@ -1,20 +1,18 @@
 {% extends "dashboard/index.html" %}
+{% block title %}
 
-{% block main_content %}
 <h3>{{ titulo }}</h3>
 <h5>Agregar {{ titulo }}</h5>
+
+{% endblock %}
+{% block main_content %}
 <form  method="post" class="post-form">{% csrf_token %}
     {{ form.as_p }}
     <div class="menu">
         <ul class="menu-option">
             <li class="menu-option__item">
                 <button type="submit">
-                    <div><i class="fa fa-save"></i><span>Guardar</span> </div>
-                </button>
-            </li>
-            <li class="menu-option__item">
-                <button type="submit" onclick="location.href='/mantenedor/producto'">
-                    <div><i class="fa fa-undo"></i><span>Cancelar</span> </div>
+                    <div><i class="fa fa-plus-save"></i><span>Guardar</span></div>
                 </button>
             </li>
         </ul>

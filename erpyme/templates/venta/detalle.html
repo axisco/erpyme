@@ -1,0 +1,47 @@
+{% extends "dashboard/index.html" %} {% block main_content %}
+
+<h5> {{ titulo }}</h5>
+<div class="divider"></div>
+Factura: {{ compra.factura }}<br>
+Proveedor: {{ compra.proveedor }}<br>
+Fecha: {{ compra.fecha }}<br>
+
+{% if productos %}
+<table>
+  <thead>
+        <tr>
+            <th>#</th>
+            <th>Producto</th>
+            <th>Valor Unitario</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+          </tr>
+      </thead>
+        <tbody>
+
+  {% for producto in productos %}
+    <tr>
+      <td>#</td>
+      <td>{{producto.producto}}</td>
+      <td>{{producto.valor_unidad}}</td>
+      <td>{{producto.unidades}}</td>
+      <td>${{producto.total}}</td>
+    </tr>
+  {% endfor %}
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><strong>${{compra.total}}</strong></td>
+    </tr>
+</body>
+
+</table>
+{% else %}
+<p>No existen productos.</p>
+{% endif %}
+
+<br>
+<button type="button" onClick="window.location.href='{% url 'compra:index_com' %}'" class="save btn btn-default">Volver</button>
+{% endblock %}

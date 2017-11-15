@@ -129,9 +129,13 @@ def detalle_prd(request, id):
 def agregar_prd(request):
 	form = ProductoForm(request.POST or None)
 	if form.is_valid():
-		form.save()
+		form.save()		
 		return redirect('/mantenedor/producto')
-	return render( request,'mantenedor/producto/agregar.html', {'form': form})
+	context = {
+		'titulo': "Producto",
+		'form'	: form,
+	}
+	return render( request,'mantenedor/producto/agregar.html', context)
 
 def agregar_cat_prd(request):
 	form = CategoriaForm(request.POST or None)

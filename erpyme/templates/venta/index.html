@@ -2,7 +2,6 @@
 
 <h5> {{ titulo }}</h5>
 <div class="divider"></div>
-
 {% if lista %}
 <table class="striped">
     <thead>
@@ -33,6 +32,5 @@
 {% else %}
 <p>No existen Compras.</p>
 {% endif %}
-<a href="{% url 'compra:nueva_com' %}"><div><i class="fa fa-plus-circle"></i><span>Nueva Compra</span></div></a>
-
+<button type="button" onClick="window.location.href='{% url 'compra:nueva_com' %}'" class="save btn btn-default">Nueva Compra</button>
 {% endblock %}

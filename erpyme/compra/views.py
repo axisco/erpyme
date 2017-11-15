@@ -39,9 +39,12 @@ def detalle_com(request, id):
     return render( request, 'compra/detalle.html', context)
 
 def nueva_com(request):
-    	lista = Proveedor.objects.order_by('rsocial')
-    	context = {
-            	'lista': lista,
-    	        'titulo': "Compras",
-        	}
-    	return render( request, 'compra/index.html', context)
+	form = CompraProductoForm(request.POST or None)
+	if form.is_valid():
+		form.save()
+		return redirect('/compra/index.html')
+	context = {
+		'titulo': "Compra de Producto",
+		'form'	: form,
+	}
+	return render( request,'compra/agregar.html', context)

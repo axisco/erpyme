@@ -24,7 +24,10 @@
                     </a>
                     <ul class="collapse-nav">
                         <li class="collapse-nav__item">
-                            <a href="#">Nueva Venta</a>
+                            <a href="{% url 'venta:index_ver_bol' %}">Boleta</a>
+                        </li>
+                        <li class="collapse-nav__item">
+                            <a href="{% url 'venta:index_ver_fac' %}">Factura</a>
                         </li>
                     </ul>
                 </li>

@@ -5,7 +5,10 @@ app_name = 'venta'
 
 urlpatterns = [
 	#mantenedor proveedor
-    url(r'^ver/$', views.index_ven, name='index_ven'),
-    url(r'^nueva/$', views.nueva_ven, name='nueva_ven'),
-    url(r'^detalle/(?P<id>[0-9]+)$', views.detalle_ven, name='detalle_ven'),
+    url(r'^verBoleta/$', views.index_ver_bol, name='index_ver_bol'),
+    # url(r'^ventaBoleta/$', views.nueva_bol, name='nueva_bol'),
+    # url(r'^detalleBoleta/(?P<id>[0-9]+)$', views.detalle_bol, name='detalle_bol'),
+    url(r'^verFactura/$', views.index_ver_fac, name='index_ver_fac'),
+    # url(r'^ventaFactura/$', views.nueva_fac, name='nueva_fac'),
+    # url(r'^detalleFactura/(?P<id>[0-9]+)$', views.detalle_fac, name='detalle_fac'),
 ]
