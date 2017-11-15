@@ -13,6 +13,7 @@ env/
 **/js/materialize.min.js
 **/js/muestra.js
 **/js/popper.min.js
+**/js/_main.js
 **/__pycache__
 **/**/__pycache__
 config.codekit3
